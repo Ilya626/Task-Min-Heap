@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class Heap {
@@ -8,7 +7,7 @@ public class Heap {
     private int maxHeapSize;
 
     private Heap(int maxHeapSize) {
-        Heap = new int[maxHeapSize + 1];
+        Heap = new int[maxHeapSize + 2];
         this.maxHeapSize = maxHeapSize;
         this.actualHeapSize = 0;
         Heap[0] = Integer.MIN_VALUE;
@@ -84,7 +83,12 @@ public class Heap {
         }
 
         minHeap.minHeap();
-        System.out.println("The Min Heap is ");
-        System.out.println(Arrays.toString(minHeap.Heap));
+
+        for (int i = 1; i <= minHeap.actualHeapSize / 2; i++) {
+            System.out.print(" PARENT: " + minHeap.Heap[i]
+                    + " LEFT CHILD: " + minHeap.Heap[2 * i]
+                    + " RIGHT CHILD:" + minHeap.Heap[2 * i + 1]);
+            System.out.println();
+        }
     }
 }
